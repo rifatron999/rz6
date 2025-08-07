@@ -169,6 +169,62 @@ section h2::after {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* Property Card Specific Styles */
+.property .card {
+  width: 280px;
+  text-align: left;
+}
+
+.property-details {
+  margin-top: 15px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.property-features {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.property-feature {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: var(--gray);
+}
+
+.property-feature span {
+  margin-left: 5px;
+}
+
+.property-description {
+  font-size: 13px;
+  color: var(--gray);
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.property-location {
+  font-size: 12px;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.property-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--primary);
+  color: var(--white);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 35px rgba(46, 108, 255, 0.15);
