@@ -1,0 +1,867 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RoNZar - Smart Content Commerce</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2e6cff;
+      --primary-light: #e1e8f5;
+      --secondary: #6c63ff;
+      --dark: #111827;
+      --gray: #4b5563;
+      --light-gray: #f5f7fa;
+      --white: #ffffff;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
+      background: var(--white);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 24px;
+      transition: transform 0.3s ease;
+    }
+    header h1:hover {
+      transform: scale(1.05);
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      position: relative;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      color: var(--primary);
+      background-color: rgba(46, 108, 255, 0.1);
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 5%;
+      background: linear-gradient(135deg, var(--light-gray) 0%, var(--primary-light) 100%);
+      flex-wrap: wrap;
+      border-radius: 0 0 30px 30px;
+    }
+    .hero-text {
+      max-width: 500px;
+    }
+    .hero-text h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .hero-text p {
+      font-size: 16px;
+      color: #444;
+    }
+    .hero img {
+      max-width: 400px;
+      border-radius: 10px;
+    }
+    .button {
+      margin-top: 20px;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(46, 108, 255, 0.3);
+    }
+    .button:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(46, 108, 255, 0.4);
+    }
+    section {
+      padding: 80px 5%;
+      position: relative;
+    }
+    section:nth-child(even) {
+      background-color: #f5f8ff;
+    }
+    section h2 {
+      text-align: center;
+      position: relative;
+      margin-bottom: 50px;
+      font-size: 36px;
+      color: var(--dark);
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    section h2::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    .categories, .products, .how-it-works, .property {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.03);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      width: 200px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(46, 108, 255, 0.15);
+      border-color: rgba(46, 108, 255, 0.1);
+    }
+    .card img {
+      width: 100%;
+      max-height: 120px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .card:hover img {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 8px rgba(46, 108, 255, 0.4));
+    }
+    .card h3 {
+      margin: 10px 0 5px;
+      font-size: 16px;
+    }
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+    /* How It Works Section */
+    .how-it-works-section {
+      background-color: var(--light-gray);
+      padding: 60px 5%;
+      border-radius: 30px;
+      margin: 40px 5%;
+    }
+    .how-it-works {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .step-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 30px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .step-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .step-number {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: var(--white);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    .step-card img {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+    }
+    
+    /* Global Expansion Section */
+    .global-expansion {
+      padding: 60px 5%;
+    }
+    .section-description {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: var(--gray);
+      font-size: 18px;
+    }
+    .global-domains {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .domain-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 20px;
+      width: 180px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .domain-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .domain-card img {
+       width: 60px;
+       height: 60px;
+       margin-bottom: 15px;
+       transition: transform 0.5s ease;
+     }
+     .domain-card:hover img {
+       transform: scale(1.1) rotate(5deg);
+     }
+    .domain-card h3 {
+      margin: 10px 0 5px;
+      font-size: 16px;
+    }
+    .domain-card p {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    /* Core Modules Section */
+    .core-modules {
+      padding: 60px 5%;
+      background-color: var(--light-gray);
+      border-radius: 30px;
+      margin: 40px 5%;
+    }
+    .module-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .module-card {
+      background: var(--white);
+      border-radius: 12px;
+      width: 45%;
+      min-width: 300px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .module-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .module-card.highlight {
+      border: 2px solid var(--primary);
+      position: relative;
+    }
+    .pilot-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--primary);
+      color: var(--white);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .module-header {
+      padding: 20px;
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+    }
+    .module-header img {
+      width: 50px;
+      height: 50px;
+      margin-right: 15px;
+    }
+    .module-header h3 {
+      margin: 0;
+      font-size: 20px;
+      color: var(--dark);
+    }
+    .module-content {
+      padding: 20px;
+    }
+    .module-content p {
+      margin: 10px 0;
+    }
+    .module-content ul {
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+    .module-content li {
+      margin-bottom: 8px;
+      color: var(--gray);
+    }
+    
+    /* QR Example Section */
+    .qr-example {
+      padding: 60px 5%;
+    }
+    .qr-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .qr-image {
+      flex: 0 0 300px;
+      text-align: center;
+    }
+    .qr-image img {
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .qr-description {
+      flex: 1;
+      min-width: 300px;
+    }
+    .qr-description h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+    .qr-description p {
+      margin-bottom: 15px;
+      color: var(--gray);
+    }
+    .qr-description ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    .qr-description li {
+      margin-bottom: 10px;
+      color: var(--gray);
+    }
+    
+    /* Technology Stack Section */
+    .tech-stack {
+      padding: 60px 5%;
+      background: linear-gradient(135deg, var(--light-gray) 0%, rgba(255,255,255,0.8) 100%);
+      border-radius: 30px;
+      margin: 40px 5%;
+    }
+    .tech-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .tech-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 30px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .tech-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .tech-card img {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      transition: transform 0.3s ease;
+    }
+    .tech-card:hover img {
+      transform: scale(1.1);
+    }
+    .tech-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+    .tech-card p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+    
+    /* Footer Styles */
+    footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 60px 5% 20px;
+      margin-top: 60px;
+    }
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+    .footer-logo h2 {
+      font-size: 24px;
+      margin: 0 0 10px;
+    }
+    .footer-logo p {
+      color: #aaa;
+      max-width: 300px;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .footer-column h3 {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #ddd;
+    }
+    .footer-column a {
+      display: block;
+      color: #aaa;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+    .footer-column a:hover {
+      color: var(--primary);
+    }
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+    }
+    .footer-bottom p {
+      color: #777;
+    }
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    .social-links a {
+      color: #777;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .social-links a:hover {
+      color: var(--primary);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero img {
+        margin-top: 20px;
+      }
+      .module-card {
+        width: 100%;
+      }
+      .footer-content {
+        flex-direction: column;
+      }
+      .footer-logo {
+        margin-bottom: 30px;
+      }
+      .footer-links {
+        gap: 20px;
+      }
+      .footer-column {
+        flex: 0 0 100%;
+        margin-bottom: 20px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      .social-links {
+        margin-top: 15px;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>RoNZar</h1>
+  <nav>
+    <a href="#">Housing</a>
+    <a href="#">Automobiles</a>
+    <a href="#">Digital</a>
+    <a href="#">Food</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h2>Smart Content Commerce Platform</h2>
+    <p>Connect with local businesses selling products & services through social content.</p>
+    <button class="button">Get Started</button>
+  </div>
+  <img src="icons/hero/hero-illustration.svg" alt="Hero" style="max-width: 400px; height: auto;">
+</section>
+
+<section>
+  <h2>Browse Categories</h2>
+  <div class="categories">
+    <div class="card">
+      <img src="icons/category/digital-icon.svg" alt="Digital">
+      <h3>Digital</h3>
+      <p>Explore electronics and gadgets.</p>
+    </div>
+    <div class="card">
+      <img src="icons/category/automobile-icon.svg" alt="Automobiles">
+      <h3>Automobiles</h3>
+      <p>Find cars and motorcycles for sale.</p>
+    </div>
+    <div class="card">
+      <img src="icons/category/housing-icon.svg" alt="Housing">
+      <h3>Housing</h3>
+      <p>Browse rental properties.</p>
+    </div>
+    <div class="card">
+      <img src="icons/category/food-icon.svg" alt="Food">
+      <h3>Food</h3>
+      <p>Explore local restaurants.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Featured Products</h2>
+  <div class="products">
+    <div class="card">
+      <img src="icons/modules/smartwatch-icon.svg" alt="Product">
+      <h3>Amazirt CTR 3 Pro</h3>
+      <p>£290.000</p>
+    </div>
+    <div class="card">
+      <img src="icons/modules/laptop-icon.svg" alt="Product">
+      <h3>ASUS VivoBook 15</h3>
+      <p>£100.000</p>
+    </div>
+    <div class="card">
+      <img src="icons/modules/camera-icon.svg" alt="Product">
+      <h3>Canon EOS R10</h3>
+      <p>£130.000</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Property Listings</h2>
+  <div class="property">
+    <div class="card">
+      <img src="icons/category/property-icon.svg" alt="Property">
+      <h3>Luxury Apartment</h3>
+      <p>$500,000</p>
+    </div>
+    <div class="card">
+      <img src="icons/category/property-icon.svg" alt="Property" style="transform: scaleX(-1);">
+    </div>
+  </div>
+</section>
+
+<section class="how-it-works-section">
+  <h2>How It Works</h2>
+  <div class="how-it-works">
+    <div class="step-card">
+      <div class="step-number">1</div>
+      <img src="icons/how-it-works/create-content-icon.svg" alt="Create Content">
+      <h3>Create Content</h3>
+      <p>Upload videos, photos, pricing, and descriptions for your products or services.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">2</div>
+      <img src="icons/how-it-works/shopfront-icon.svg" alt="Host on Shopfront">
+      <h3>Host on Shopfront</h3>
+      <p>Get your own branded Ronzar shopfront to showcase all your offerings.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">3</div>
+      <img src="icons/how-it-works/sync-platforms-icon.svg" alt="Sync Across Platforms">
+      <h3>Sync Across Platforms</h3>
+      <p>Automatically publish your content to Facebook, YouTube, Twitter, and Instagram.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">4</div>
+      <img src="icons/how-it-works/convert-sales-icon.svg" alt="Convert to Sales">
+      <h3>Convert to Sales</h3>
+      <p>Turn content views into customer actions through orders, chats, and visits.</p>
+    </div>
+  </div>
+</section>
+
+<section class="global-expansion">
+  <h2>Global Expansion</h2>
+  <p class="section-description">Ronzar is expanding globally with localized domains for each country.</p>
+  <div class="global-domains">
+    <div class="domain-card">
+      <img src="icons/global/bangladesh-flag.svg" alt="Bangladesh">
+      <h3>Bangladesh</h3>
+      <p>rz.com.bd</p>
+    </div>
+    <div class="domain-card">
+      <img src="icons/global/usa-flag.svg" alt="United States">
+      <h3>United States</h3>
+      <p>rz.com.us</p>
+    </div>
+    <div class="domain-card">
+      <img src="icons/global/australia-flag.svg" alt="Australia">
+      <h3>Australia</h3>
+      <p>rz.com.au</p>
+    </div>
+    <div class="domain-card">
+      <img src="icons/global/india-flag.svg" alt="India">
+      <h3>India</h3>
+      <p>rz.com.in</p>
+    </div>
+  </div>
+</section>
+
+<section class="core-modules">
+  <h2>Core Modules</h2>
+  <div class="module-container">
+    <div class="module-card">
+      <div class="module-header">
+        <img src="icons/category/housing-icon.svg" alt="RZ Housing">
+        <h3>RZ Housing</h3>
+      </div>
+      <div class="module-content">
+        <p><strong>Platform:</strong> rz.com.bd/housing</p>
+        <p><strong>Target:</strong> Flat owners, builders, agents</p>
+        <p><strong>Features:</strong></p>
+        <ul>
+          <li>Upload videos of apartments, houses, garages</li>
+          <li>Include pricing, square footage, rooms, amenities</li>
+          <li>Social sync with Facebook/YouTube</li>
+          <li>Verified listings via human or AI moderation</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="module-card">
+      <div class="module-header">
+        <img src="icons/category/digital-icon.svg" alt="RZ Digital">
+        <h3>RZ Digital</h3>
+      </div>
+      <div class="module-content">
+        <p><strong>Platform:</strong> rz.com.bd/digital</p>
+        <p><strong>Target:</strong> Mobile stores, gadget sellers, electronics dealers</p>
+        <p><strong>Features:</strong></p>
+        <ul>
+          <li>Product videos (unboxing, reviews), photos</li>
+          <li>Store location, contact, pricing, available stock</li>
+          <li>Smart shopfronts per seller</li>
+          <li>Direct messaging between customer and store</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="module-container">
+    <div class="module-card highlight">
+      <div class="module-header">
+        <div class="pilot-badge">Pilot Module</div>
+        <img src="icons/category/food-icon.svg" alt="RZ Food">
+        <h3>RZ Food</h3>
+      </div>
+      <div class="module-content">
+        <p><strong>Platform:</strong> rz.com.bd/food</p>
+        <p><strong>Target:</strong> Restaurants, cafes, cloud kitchens</p>
+        <p><strong>Features:</strong></p>
+        <ul>
+          <li>QR codes on tables lead to digital menu</li>
+          <li>Videos/photos of food items</li>
+          <li>Description, ingredients, pricing</li>
+          <li>Direct ordering to kitchen</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="module-card">
+      <div class="module-header">
+        <img src="icons/category/services-icon.svg" alt="RZ Services">
+        <h3>RZ Services</h3>
+      </div>
+      <div class="module-content">
+        <p><strong>Platform:</strong> rz.com.bd/services</p>
+        <p><strong>Target:</strong> Freelancers, tradespeople, skilled workers</p>
+        <p><strong>Features:</strong></p>
+        <ul>
+          <li>Intro video, work photos, service area, pricing</li>
+          <li>Discoverable by area/location filter</li>
+          <li>Direct messaging for booking</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="qr-example">
+  <h2>Real-World Example</h2>
+  <div class="qr-container">
+    <div class="qr-image">
+      <img src="icons/tech/qr-code-icon.svg" alt="QR Code Example">
+    </div>
+    <div class="qr-description">
+      <h3>Restaurant QR Menu System</h3>
+      <p>Each table at a restaurant has a unique QR code that customers can scan to:</p>
+      <ul>
+        <li>View an interactive menu with videos of each dish</li>
+        <li>See detailed descriptions, ingredients, and pricing</li>
+        <li>Place orders directly through the platform</li>
+        <li>No app download required - works directly in browser</li>
+      </ul>
+      <p>Restaurant owners can easily update menu items, prices, and availability in real-time through their dashboard.</p>
+      <button class="button">Try Demo</button>
+    </div>
+  </div>
+</section>
+
+<!-- Technology Stack Section -->
+<section class="tech-stack">
+  <h2 class="section-title">Powered by Advanced Technology</h2>
+  <p class="section-description">Our platform is built on cutting-edge technology that ensures reliability, security, and scalability</p>
+  
+  <div class="tech-container">
+    <div class="tech-card">
+      <img src="icons/tech/dashboard-icon.svg" alt="Dashboard">
+      <h3>Unified Dashboard</h3>
+      <p>Centralized control panel for managing all your listings, analytics, and customer interactions across modules</p>
+    </div>
+    
+    <div class="tech-card">
+      <img src="icons/tech/ai-icon.svg" alt="AI Moderation">
+      <h3>AI Moderation</h3>
+      <p>Advanced algorithms automatically review content, detect policy violations, and ensure quality standards</p>
+    </div>
+    
+    <div class="tech-card">
+      <img src="icons/tech/sync-icon.svg" alt="Content Sync Engine">
+      <h3>Content Sync Engine</h3>
+      <p>Real-time synchronization of your content across multiple platforms, ensuring consistency everywhere</p>
+    </div>
+    
+    <div class="tech-card">
+      <img src="icons/tech/qr-code-icon.svg" alt="Smart QR Generator">
+      <h3>Smart QR Generator</h3>
+      <p>Create dynamic QR codes that track engagement and update content without changing the code</p>
+    </div>
+    
+    <div class="tech-card">
+      <img src="icons/tech/communication-icon.svg" alt="Communication Tools">
+      <h3>Communication Tools</h3>
+      <p>Integrated messaging, notifications, and feedback systems to keep you connected with your customers</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">
+      <h2>RoNZar</h2>
+      <p>Smart Content Commerce Platform</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-column">
+        <h3>Platform</h3>
+        <a href="#">Housing</a>
+        <a href="#">Automobiles</a>
+        <a href="#">Digital</a>
+        <a href="#">Food</a>
+        <a href="#">Services</a>
+      </div>
+      <div class="footer-column">
+        <h3>Company</h3>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Blog</a>
+        <a href="#">Press</a>
+      </div>
+      <div class="footer-column">
+        <h3>Support</h3>
+        <a href="#">Help Center</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2023 RoNZar. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#" aria-label="Facebook">Facebook</a>
+      <a href="#" aria-label="Twitter">Twitter</a>
+      <a href="#" aria-label="Instagram">Instagram</a>
+      <a href="#" aria-label="LinkedIn">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

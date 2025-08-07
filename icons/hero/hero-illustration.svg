@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="400" height="250">
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="500" fill="#f5f7fa" rx="20" ry="20"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="200" cy="100" r="50" fill="#e1e8f5"/>
+  <circle cx="600" cy="400" r="80" fill="#e1e8f5"/>
+  <circle cx="700" cy="150" r="30" fill="#e1e8f5"/>
+  
+  <!-- Device frame -->
+  <rect x="300" y="100" width="200" height="300" rx="20" ry="20" fill="#ffffff" stroke="#2e6cff" stroke-width="3"/>
+  
+  <!-- Screen content -->
+  <rect x="320" y="130" width="160" height="200" fill="#f0f4f9"/>
+  
+  <!-- App elements -->
+  <rect x="340" y="150" width="120" height="20" rx="5" ry="5" fill="#2e6cff"/>
+  <rect x="340" y="190" width="120" height="60" rx="5" ry="5" fill="#ffffff" stroke="#2e6cff" stroke-width="2"/>
+  <rect x="340" y="270" width="50" height="40" rx="5" ry="5" fill="#ffffff" stroke="#2e6cff" stroke-width="2"/>
+  <rect x="410" y="270" width="50" height="40" rx="5" ry="5" fill="#ffffff" stroke="#2e6cff" stroke-width="2"/>
+  
+  <!-- Home button -->
+  <circle cx="400" cy="360" r="15" fill="#ffffff" stroke="#2e6cff" stroke-width="2"/>
+  
+  <!-- Connection lines -->
+  <path d="M200 150 L290 200" stroke="#2e6cff" stroke-width="2" stroke-dasharray="5,5"/>
+  <path d="M510 200 L600 150" stroke="#2e6cff" stroke-width="2" stroke-dasharray="5,5"/>
+  <path d="M400 410 L400 450" stroke="#2e6cff" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Small icons -->
+  <circle cx="200" cy="150" r="15" fill="#2e6cff"/>
+  <circle cx="600" cy="150" r="15" fill="#2e6cff"/>
+  <circle cx="400" cy="450" r="15" fill="#2e6cff"/>
+</svg>
