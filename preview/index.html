@@ -7,373 +7,31 @@
   <title>RoNZar - Smart Content Commerce</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-   <script src="script.js" defer></script>
-      position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .step-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    .step-number {
-      position: absolute;
-      top: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--primary);
-      color: var(--white);
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
-    .step-card img {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 20px;
-    }
-    
-    /* Global Expansion Section */
-    .global-expansion {
-      padding: 60px 5%;
-    }
-    .section-description {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 40px;
-      color: var(--gray);
-      font-size: 18px;
-    }
-    .global-domains {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
-    .domain-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 20px;
-      width: 180px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .domain-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    .domain-card img {
-       width: 60px;
-       height: 60px;
-       margin-bottom: 15px;
-       transition: transform 0.5s ease;
-     }
-     .domain-card:hover img {
-       transform: scale(1.1) rotate(5deg);
-     }
-    .domain-card h3 {
-      margin: 10px 0 5px;
-      font-size: 16px;
-    }
-    .domain-card p {
-      color: var(--primary);
-      font-weight: 600;
-    }
-    
-    /* Core Modules Section */
-    .core-modules {
-      padding: 60px 5%;
-      background-color: var(--light-gray);
-      border-radius: 30px;
-      margin: 40px 5%;
-    }
-    .module-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-bottom: 30px;
-    }
-    .module-card {
-      background: var(--white);
-      border-radius: 12px;
-      width: 45%;
-      min-width: 300px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .module-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    .module-card.highlight {
-      border: 2px solid var(--primary);
-      position: relative;
-    }
-    .pilot-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: var(--primary);
-      color: var(--white);
-      padding: 5px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-    .module-header {
-      padding: 20px;
-      background: var(--primary-light);
-      display: flex;
-      align-items: center;
-    }
-    .module-header img {
-      width: 50px;
-      height: 50px;
-      margin-right: 15px;
-    }
-    .module-header h3 {
-      margin: 0;
-      font-size: 20px;
-      color: var(--dark);
-    }
-    .module-content {
-      padding: 20px;
-    }
-    .module-content p {
-      margin: 10px 0;
-    }
-    .module-content ul {
-      padding-left: 20px;
-      margin: 10px 0;
-    }
-    .module-content li {
-      margin-bottom: 8px;
-      color: var(--gray);
-    }
-    
-    /* QR Example Section */
-    .qr-example {
-      padding: 60px 5%;
-    }
-    .qr-container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .qr-image {
-      flex: 0 0 300px;
-      text-align: center;
-    }
-    .qr-image img {
-      width: 200px;
-      height: 200px;
-      padding: 20px;
-      background: var(--white);
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    .qr-description {
-      flex: 1;
-      min-width: 300px;
-    }
-    .qr-description h3 {
-      font-size: 24px;
-      margin-bottom: 15px;
-      color: var(--dark);
-    }
-    .qr-description p {
-      margin-bottom: 15px;
-      color: var(--gray);
-    }
-    .qr-description ul {
-      padding-left: 20px;
-      margin-bottom: 20px;
-    }
-    .qr-description li {
-      margin-bottom: 10px;
-      color: var(--gray);
-    }
-    
-    /* Technology Stack Section */
-    .tech-stack {
-      padding: 60px 5%;
-      background: linear-gradient(135deg, var(--light-gray) 0%, rgba(255,255,255,0.8) 100%);
-      border-radius: 30px;
-      margin: 40px 5%;
-    }
-    .tech-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 40px;
-    }
-    .tech-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 30px;
-      width: 220px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .tech-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    .tech-card img {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 20px;
-      transition: transform 0.3s ease;
-    }
-    .tech-card:hover img {
-      transform: scale(1.1);
-    }
-    .tech-card h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      color: var(--dark);
-    }
-    .tech-card p {
-      font-size: 14px;
-      color: var(--gray);
-      line-height: 1.5;
-    }
-    
-    /* Footer Styles */
-    footer {
-      background: var(--dark);
-      color: var(--white);
-      padding: 60px 5% 20px;
-      margin-top: 60px;
-    }
-    .footer-content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-bottom: 40px;
-    }
-    .footer-logo h2 {
-      font-size: 24px;
-      margin: 0 0 10px;
-    }
-    .footer-logo p {
-      color: #aaa;
-      max-width: 300px;
-    }
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-    }
-    .footer-column h3 {
-      font-size: 16px;
-      margin-bottom: 20px;
-      color: #ddd;
-    }
-    .footer-column a {
-      display: block;
-      color: #aaa;
-      text-decoration: none;
-      margin-bottom: 10px;
-      transition: color 0.3s ease;
-    }
-    .footer-column a:hover {
-      color: var(--primary);
-    }
-    .footer-bottom {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 20px;
-      border-top: 1px solid #333;
-    }
-    .footer-bottom p {
-      color: #777;
-    }
-    .social-links {
-      display: flex;
-      gap: 15px;
-    }
-    .social-links a {
-      color: #777;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .social-links a:hover {
-      color: var(--primary);
-    }
-    
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-      .hero img {
-        margin-top: 20px;
-      }
-      .module-card {
-        width: 100%;
-      }
-      .footer-content {
-        flex-direction: column;
-      }
-      .footer-logo {
-        margin-bottom: 30px;
-      }
-      .footer-links {
-        gap: 20px;
-      }
-      .footer-column {
-        flex: 0 0 100%;
-        margin-bottom: 20px;
-      }
-      .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-      }
-      .social-links {
-        margin-top: 15px;
-        justify-content: center;
-      }
-    }
-  </style>
+  <script src="script.js" defer></script>
 </head>
 <body>
 
 <header>
   <h1>RoNZar</h1>
   <nav>
-    <a href="#">Housing</a>
-    <a href="#">Automobiles</a>
-    <a href="#">Digital</a>
-    <a href="#">Food</a>
+    <a href="#categories">Categories</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#global-expansion">Global</a>
+    <a href="#core-modules">Modules</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <section class="hero">
   <div class="hero-text">
     <h2>Smart Content Commerce Platform</h2>
-    <p>Connect with local businesses selling products & services through social content.</p>
+    <p>Create video-rich product listings, sync to social media, and convert views to sales with our all-in-one platform.</p>
     <button class="button">Get Started</button>
   </div>
   <img src="assets/icons/hero/hero-illustration.svg" alt="Hero" style="max-width: 400px; height: auto;">
 </section>
 
-<section>
+<section id="categories">
   <h2>Browse Categories</h2>
   <div class="categories">
     <div class="card">
@@ -399,7 +57,7 @@
   </div>
 </section>
 
-<section>
+<section id="products">
   <h2>Featured Products</h2>
   <div class="products">
     <div class="card">
@@ -420,21 +78,18 @@
   </div>
 </section>
 
-<section>
-  <h2>Property Listings</h2>
+<section id="property">
+  <h2>Featured Properties</h2>
   <div class="property">
     <div class="card">
       <img src="assets/icons/category/property-icon.svg" alt="Property">
       <h3>Luxury Apartment</h3>
       <p>$500,000</p>
     </div>
-    <div class="card">
-      <img src="icons/category/property-icon.svg" alt="Property" style="transform: scaleX(-1);">
-    </div>
   </div>
 </section>
 
-<section class="how-it-works-section">
+<section id="how-it-works" class="how-it-works-section">
   <h2>How It Works</h2>
   <div class="how-it-works">
     <div class="step-card">
@@ -464,9 +119,10 @@
   </div>
 </section>
 
-<section class="global-expansion">
-  <h2>Global Expansion</h2>
-  <p class="section-description">Ronzar is expanding globally with localized domains for each country.</p>
+<section id="global-expansion" class="global-expansion">
+  <h2 class="section-title">Global Expansion</h2>
+  <p class="section-description">Ronzar is expanding globally with country-specific domains and localized features</p>
+  
   <div class="global-domains">
     <div class="domain-card">
       <img src="assets/icons/global/bangladesh-flag.svg" alt="Bangladesh">
@@ -491,8 +147,10 @@
   </div>
 </section>
 
-<section class="core-modules">
-  <h2>Core Modules</h2>
+<section id="core-modules" class="core-modules">
+  <h2 class="section-title">Core Modules</h2>
+  <p class="section-description">Specialized platforms for different business categories with tailored features</p>
+  
   <div class="module-container">
     <div class="module-card">
       <div class="module-header">
@@ -501,10 +159,9 @@
       </div>
       <div class="module-content">
         <p><strong>Platform:</strong> rz.com.bd/housing</p>
-        <p><strong>Target:</strong> Flat owners, builders, agents</p>
+        <p><strong>Target:</strong> Real estate agents, property owners, developers</p>
         <p><strong>Features:</strong></p>
         <ul>
-          <li>Upload videos of apartments, houses, garages</li>
           <li>Include pricing, square footage, rooms, amenities</li>
           <li>Social sync with Facebook/YouTube</li>
           <li>Verified listings via human or AI moderation</li>
