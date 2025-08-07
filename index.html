@@ -6,200 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RoNZar - Smart Content Commerce</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #2e6cff;
-      --primary-light: #e1e8f5;
-      --secondary: #6c63ff;
-      --dark: #111827;
-      --gray: #4b5563;
-      --light-gray: #f5f7fa;
-      --white: #ffffff;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: var(--white);
-      color: var(--dark);
-      line-height: 1.6;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 5%;
-      background: var(--white);
-      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    header h1 {
-      font-weight: 700;
-      font-size: 24px;
-      transition: transform 0.3s ease;
-    }
-    header h1:hover {
-      transform: scale(1.05);
-    }
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 500;
-      position: relative;
-      padding: 5px 10px;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-    }
-    nav a:hover {
-      color: var(--primary);
-      background-color: rgba(46, 108, 255, 0.1);
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: var(--primary);
-      transition: width 0.3s ease;
-    }
-    nav a:hover::after {
-      width: 100%;
-    }
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 80px 5%;
-      background: linear-gradient(135deg, var(--light-gray) 0%, var(--primary-light) 100%);
-      flex-wrap: wrap;
-      border-radius: 0 0 30px 30px;
-    }
-    .hero-text {
-      max-width: 500px;
-    }
-    .hero-text h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-    .hero-text p {
-      font-size: 16px;
-      color: #444;
-    }
-    .hero img {
-      max-width: 400px;
-      border-radius: 10px;
-    }
-    .button {
-      margin-top: 20px;
-      background: var(--primary);
-      color: var(--white);
-      border: none;
-      padding: 12px 28px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(46, 108, 255, 0.3);
-    }
-    .button:hover {
-      background: var(--secondary);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(46, 108, 255, 0.4);
-    }
-    section {
-      padding: 80px 5%;
-      position: relative;
-    }
-    section:nth-child(even) {
-      background-color: #f5f8ff;
-    }
-    section h2 {
-      text-align: center;
-      position: relative;
-      margin-bottom: 50px;
-      font-size: 36px;
-      color: var(--dark);
-      display: inline-block;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    section h2::after {
-      content: '';
-      position: absolute;
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
-    .categories, .products, .how-it-works, .property {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    .card {
-      background: #fff;
-      border: 1px solid rgba(0,0,0,0.03);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      width: 200px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(46, 108, 255, 0.15);
-      border-color: rgba(46, 108, 255, 0.1);
-    }
-    .card img {
-      width: 100%;
-      max-height: 120px;
-      border-radius: 8px;
-      margin-bottom: 10px;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-    .card:hover img {
-      transform: scale(1.05);
-      filter: drop-shadow(0 0 8px rgba(46, 108, 255, 0.4));
-    }
-    .card h3 {
-      margin: 10px 0 5px;
-      font-size: 16px;
-    }
-    .card p {
-      font-size: 14px;
-      color: #555;
-    }
-    /* How It Works Section */
-    .how-it-works-section {
-      background-color: var(--light-gray);
-      padding: 60px 5%;
-      border-radius: 30px;
-      margin: 40px 5%;
-    }
-    .how-it-works {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
-    .step-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 30px;
-      width: 220px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  <link rel="stylesheet" href="style.css">
+   <script src="script.js" defer></script>
       position: relative;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -562,29 +370,29 @@
     <p>Connect with local businesses selling products & services through social content.</p>
     <button class="button">Get Started</button>
   </div>
-  <img src="icons/hero/hero-illustration.svg" alt="Hero" style="max-width: 400px; height: auto;">
+  <img src="assets/icons/hero/hero-illustration.svg" alt="Hero" style="max-width: 400px; height: auto;">
 </section>
 
 <section>
   <h2>Browse Categories</h2>
   <div class="categories">
     <div class="card">
-      <img src="icons/category/digital-icon.svg" alt="Digital">
+      <img src="assets/icons/category/digital-icon.svg" alt="Digital">
       <h3>Digital</h3>
       <p>Explore electronics and gadgets.</p>
     </div>
     <div class="card">
-      <img src="icons/category/automobile-icon.svg" alt="Automobiles">
+      <img src="assets/icons/category/automobile-icon.svg" alt="Automobiles">
       <h3>Automobiles</h3>
       <p>Find cars and motorcycles for sale.</p>
     </div>
     <div class="card">
-      <img src="icons/category/housing-icon.svg" alt="Housing">
+      <img src="assets/icons/category/housing-icon.svg" alt="Housing">
       <h3>Housing</h3>
       <p>Browse rental properties.</p>
     </div>
     <div class="card">
-      <img src="icons/category/food-icon.svg" alt="Food">
+      <img src="assets/icons/category/food-icon.svg" alt="Food">
       <h3>Food</h3>
       <p>Explore local restaurants.</p>
     </div>
@@ -595,17 +403,17 @@
   <h2>Featured Products</h2>
   <div class="products">
     <div class="card">
-      <img src="icons/modules/smartwatch-icon.svg" alt="Product">
+      <img src="assets/icons/modules/smartwatch-icon.svg" alt="Product">
       <h3>Amazirt CTR 3 Pro</h3>
       <p>£290.000</p>
     </div>
     <div class="card">
-      <img src="icons/modules/laptop-icon.svg" alt="Product">
+      <img src="assets/icons/modules/laptop-icon.svg" alt="Product">
       <h3>ASUS VivoBook 15</h3>
       <p>£100.000</p>
     </div>
     <div class="card">
-      <img src="icons/modules/camera-icon.svg" alt="Product">
+      <img src="assets/icons/modules/camera-icon.svg" alt="Product">
       <h3>Canon EOS R10</h3>
       <p>£130.000</p>
     </div>
@@ -616,7 +424,7 @@
   <h2>Property Listings</h2>
   <div class="property">
     <div class="card">
-      <img src="icons/category/property-icon.svg" alt="Property">
+      <img src="assets/icons/category/property-icon.svg" alt="Property">
       <h3>Luxury Apartment</h3>
       <p>$500,000</p>
     </div>
@@ -631,25 +439,25 @@
   <div class="how-it-works">
     <div class="step-card">
       <div class="step-number">1</div>
-      <img src="icons/how-it-works/create-content-icon.svg" alt="Create Content">
+      <img src="assets/icons/how-it-works/create-content-icon.svg" alt="Create Content">
       <h3>Create Content</h3>
       <p>Upload videos, photos, pricing, and descriptions for your products or services.</p>
     </div>
     <div class="step-card">
       <div class="step-number">2</div>
-      <img src="icons/how-it-works/shopfront-icon.svg" alt="Host on Shopfront">
+      <img src="assets/icons/how-it-works/shopfront-icon.svg" alt="Host on Shopfront">
       <h3>Host on Shopfront</h3>
       <p>Get your own branded Ronzar shopfront to showcase all your offerings.</p>
     </div>
     <div class="step-card">
       <div class="step-number">3</div>
-      <img src="icons/how-it-works/sync-platforms-icon.svg" alt="Sync Across Platforms">
+      <img src="assets/icons/how-it-works/sync-platforms-icon.svg" alt="Sync Platforms">
       <h3>Sync Across Platforms</h3>
       <p>Automatically publish your content to Facebook, YouTube, Twitter, and Instagram.</p>
     </div>
     <div class="step-card">
       <div class="step-number">4</div>
-      <img src="icons/how-it-works/convert-sales-icon.svg" alt="Convert to Sales">
+      <img src="assets/icons/how-it-works/convert-sales-icon.svg" alt="Convert Sales">
       <h3>Convert to Sales</h3>
       <p>Turn content views into customer actions through orders, chats, and visits.</p>
     </div>
@@ -661,22 +469,22 @@
   <p class="section-description">Ronzar is expanding globally with localized domains for each country.</p>
   <div class="global-domains">
     <div class="domain-card">
-      <img src="icons/global/bangladesh-flag.svg" alt="Bangladesh">
+      <img src="assets/icons/global/bangladesh-flag.svg" alt="Bangladesh">
       <h3>Bangladesh</h3>
       <p>rz.com.bd</p>
     </div>
     <div class="domain-card">
-      <img src="icons/global/usa-flag.svg" alt="United States">
+      <img src="assets/icons/global/usa-flag.svg" alt="United States">
       <h3>United States</h3>
       <p>rz.com.us</p>
     </div>
     <div class="domain-card">
-      <img src="icons/global/australia-flag.svg" alt="Australia">
+      <img src="assets/icons/global/australia-flag.svg" alt="Australia">
       <h3>Australia</h3>
       <p>rz.com.au</p>
     </div>
     <div class="domain-card">
-      <img src="icons/global/india-flag.svg" alt="India">
+      <img src="assets/icons/global/india-flag.svg" alt="India">
       <h3>India</h3>
       <p>rz.com.in</p>
     </div>
@@ -688,7 +496,7 @@
   <div class="module-container">
     <div class="module-card">
       <div class="module-header">
-        <img src="icons/category/housing-icon.svg" alt="RZ Housing">
+        <img src="assets/icons/category/housing-icon.svg" alt="RZ Housing">
         <h3>RZ Housing</h3>
       </div>
       <div class="module-content">
@@ -706,7 +514,7 @@
     
     <div class="module-card">
       <div class="module-header">
-        <img src="icons/category/digital-icon.svg" alt="RZ Digital">
+        <img src="assets/icons/category/digital-icon.svg" alt="RZ Digital">
         <h3>RZ Digital</h3>
       </div>
       <div class="module-content">
@@ -727,7 +535,7 @@
     <div class="module-card highlight">
       <div class="module-header">
         <div class="pilot-badge">Pilot Module</div>
-        <img src="icons/category/food-icon.svg" alt="RZ Food">
+        <img src="assets/icons/category/food-icon.svg" alt="RZ Food">
         <h3>RZ Food</h3>
       </div>
       <div class="module-content">
@@ -745,7 +553,7 @@
     
     <div class="module-card">
       <div class="module-header">
-        <img src="icons/category/services-icon.svg" alt="RZ Services">
+        <img src="assets/icons/category/services-icon.svg" alt="RZ Services">
         <h3>RZ Services</h3>
       </div>
       <div class="module-content">
@@ -766,7 +574,7 @@
   <h2>Real-World Example</h2>
   <div class="qr-container">
     <div class="qr-image">
-      <img src="icons/tech/qr-code-icon.svg" alt="QR Code Example">
+      <img src="assets/icons/tech/qr-code-icon.svg" alt="QR Code Example">
     </div>
     <div class="qr-description">
       <h3>Restaurant QR Menu System</h3>
@@ -790,31 +598,31 @@
   
   <div class="tech-container">
     <div class="tech-card">
-      <img src="icons/tech/dashboard-icon.svg" alt="Dashboard">
+      <img src="assets/icons/tech/dashboard-icon.svg" alt="Dashboard">
       <h3>Unified Dashboard</h3>
       <p>Centralized control panel for managing all your listings, analytics, and customer interactions across modules</p>
     </div>
     
     <div class="tech-card">
-      <img src="icons/tech/ai-icon.svg" alt="AI Moderation">
+      <img src="assets/icons/tech/ai-icon.svg" alt="AI Moderation">
       <h3>AI Moderation</h3>
       <p>Advanced algorithms automatically review content, detect policy violations, and ensure quality standards</p>
     </div>
     
     <div class="tech-card">
-      <img src="icons/tech/sync-icon.svg" alt="Content Sync Engine">
+      <img src="assets/icons/tech/sync-icon.svg" alt="Content Sync Engine">
       <h3>Content Sync Engine</h3>
       <p>Real-time synchronization of your content across multiple platforms, ensuring consistency everywhere</p>
     </div>
     
     <div class="tech-card">
-      <img src="icons/tech/qr-code-icon.svg" alt="Smart QR Generator">
+      <img src="assets/icons/tech/qr-code-icon.svg" alt="Smart QR Generator">
       <h3>Smart QR Generator</h3>
       <p>Create dynamic QR codes that track engagement and update content without changing the code</p>
     </div>
     
     <div class="tech-card">
-      <img src="icons/tech/communication-icon.svg" alt="Communication Tools">
+      <img src="assets/icons/tech/communication-icon.svg" alt="Communication Tools">
       <h3>Communication Tools</h3>
       <p>Integrated messaging, notifications, and feedback systems to keep you connected with your customers</p>
     </div>
