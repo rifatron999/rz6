@@ -636,35 +636,284 @@ footer {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+  /* Header and Navigation */
+  header {
+    flex-direction: column;
+    padding: 15px 5%;
+  }
+  
+  nav {
+    margin-top: 15px;
+    width: 100%;
+  }
+  
+  nav a {
+    margin: 0 10px;
+    font-size: 14px;
+  }
+  
+  /* Hero Section */
   .hero {
     flex-direction: column;
     text-align: center;
+    padding: 40px 5%;
   }
+  
+  .hero-text h2 {
+    font-size: 28px;
+  }
+  
   .hero img {
     margin-top: 20px;
+    max-width: 300px;
   }
+  
+  /* Section Headings */
+  section {
+    padding: 40px 5%;
+  }
+  
+  section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  /* Cards - General */
+  .categories, .products, .how-it-works, .property {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  /* Property Cards - Mobile Specific */
+  .property .card {
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+  }
+  
+  .property-features {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  
+  .property-feature {
+    font-size: 12px;
+  }
+  
+  .property-description {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .property-location {
+    font-size: 11px;
+  }
+  
+  .property-badge {
+    top: 8px;
+    right: 8px;
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+  
+  /* How It Works Section */
+  .how-it-works-section {
+    margin: 20px 2%;
+    padding: 30px 5%;
+  }
+  
+  .step-card {
+    width: 100%;
+    max-width: 280px;
+    padding: 20px;
+  }
+  
+  .step-card img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  /* Global Expansion */
+  .global-expansion {
+    padding: 40px 5%;
+  }
+  
+  .global-domains {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .domain-card {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  /* Core Modules */
+  .core-modules {
+    margin: 20px 2%;
+    padding: 30px 5%;
+  }
+  
+  .module-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
   .module-card {
     width: 100%;
+    max-width: 400px;
+    min-width: unset;
   }
+  
+  .module-header {
+    padding: 15px;
+  }
+  
+  .module-header img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .module-header h3 {
+    font-size: 18px;
+  }
+  
+  .module-content {
+    padding: 15px;
+  }
+  
+  /* QR Example Section */
+  .qr-example {
+    padding: 40px 5%;
+  }
+  
+  .qr-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .qr-image {
+    margin-bottom: 20px;
+  }
+  
+  .qr-image img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  /* Technology Stack */
+  .tech-stack {
+    margin: 20px 2%;
+    padding: 30px 5%;
+  }
+  
+  .tech-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .tech-card {
+    width: 100%;
+    max-width: 280px;
+    padding: 20px;
+  }
+  
+  .tech-card img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 40px 5% 20px;
+  }
+  
   .footer-content {
     flex-direction: column;
   }
+  
   .footer-logo {
     margin-bottom: 30px;
+    text-align: center;
   }
+  
   .footer-links {
     gap: 20px;
+    justify-content: center;
   }
+  
   .footer-column {
     flex: 0 0 100%;
     margin-bottom: 20px;
+    text-align: center;
   }
+  
   .footer-bottom {
     flex-direction: column;
     text-align: center;
   }
+  
   .social-links {
     margin-top: 15px;
     justify-content: center;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+  header {
+    padding: 10px 3%;
+  }
+  
+  .hero {
+    padding: 30px 3%;
+  }
+  
+  .hero-text h2 {
+    font-size: 24px;
+  }
+  
+  .hero-text p {
+    font-size: 14px;
+  }
+  
+  section {
+    padding: 30px 3%;
+  }
+  
+  section h2 {
+    font-size: 24px;
+  }
+  
+  .property .card {
+    max-width: 100%;
+    padding: 12px;
+  }
+  
+  .property-features {
+    gap: 5px;
+  }
+  
+  .how-it-works-section,
+  .core-modules,
+  .tech-stack {
+    margin: 15px 1%;
+    padding: 20px 3%;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    font-size: 14px;
   }
 }
